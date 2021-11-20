@@ -283,15 +283,15 @@ Saving username _wpadmin_ for later examination.
 ## shell as _www-data_
 
 Checking _http://tartarsauce.htb/webservices/wp/_ opens up a pretty basic WordPress installation.
-![](screenshot1)
+![](https://github.com/nikip72/HTB/raw/main/TartarSauce/screenshot1.png)
 Trying to bruterforce login as _wpadmin_ at http://tartarsauce.htb/webservices/wp/wp-login.php triggers a bruteforce protection.
 
 Next checking up _Monstra_ site at _http://tartarsauce.htb/webservices/monstra-3.0.4_ opens again what seems to be a default Monstra-3.0.4 installation. 
-![](screenshot2)
+![](https://github.com/nikip72/HTB/raw/main/TartarSauce/screenshot2.png)
 Nonе of the links on the top work, however clicking on _Pages Manager_  (http://tartarsauce.htb/webservices/monstra-3.0.4/admin/index.php?id=pages) pops up a login box.
-![](screenshot3)
+![](https://github.com/nikip72/HTB/raw/main/TartarSauce/screenshot3.png)
 Checking for default credentials logs reveals username _admin_ with password _admin_.
-![](screenshot4)
+![](https://github.com/nikip72/HTB/raw/main/TartarSauce/screenshot4.png)
 
 Searching for Monstra-3.0.4 vulnerabilities we find quite a lot, a nice list can be found here
 > https://stack.watch/product/monstra/
@@ -342,7 +342,7 @@ Browsing again to
 > http://tartarsauce.htb//webservices/monstra-3.0.4/admin/index.php?id=filesmanager&path=uploads/.......//./.......//./.......//./.......//./webservices/././
 
 We can confirm that the upload was successfull.
-![](screenshot5)
+![](https://github.com/nikip72/HTB/raw/main/TartarSauce/screenshot5.png)
 
 Accessing newly uploaded PHP script it is now possible to execute commands on the host as _www-data_.
 ```
