@@ -811,6 +811,7 @@ Content-Type: text/xml; charset=UTF-8
 ```
 
 Visting _http://pressed.htb/index.php/2022/02/05/title-2/_ our php code is sucessfully executed
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot6.png)
 
 # SIMPLE WEB SHELL UPLOAD
@@ -908,7 +909,7 @@ Visting _http://pressed.htb/index.php/2022/02/05/title-4/_ to execute the payloa
 
 And checking /wp-content/uploads/ to make sure payload is created.
 
-![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot7.png)
+![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot7-1.png)
 
 Confirming we can execute shell commands. Executing `id` reveals webserver is running as `www-data`
 
@@ -1011,13 +1012,13 @@ view-source:http://pressed.htb/wp-content/uploads/2022/02/blah.php?cmd=mv%20ws.j
 ```
 And accessing it:
 
-![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot7.png)
+![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot8-1.png)
 
 # ENUMERATION
 
 Using the webshell we may enumerate the system, running processes, users, file, etc.:
 
-![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot8.png)
+![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot8-2.png)
 
 For instance we may check installed software versions by checking out _/var/log/dpkg.log.1_
 
@@ -1083,6 +1084,7 @@ Ncat: Listening on 0.0.0.0:53
 ```
 
 Again execute the PoC:
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot12.png)
 
 And we have a reverse shell hitting our listener:
