@@ -552,7 +552,7 @@ define( 'DB_COLLATE', '' );
 ...
 ```
 
-Again, we we try to login as user _admin_ and password _uhc-jan-finals-2022_ we can confirm the validity of the username/password pair, but we are asked for an OTP code.
+Again, we try to login as user _admin_ and password _uhc-jan-finals-2022_ we can confirm the validity of the username/password pair, but we are asked for an OTP code.
 Access to /etc/passwd
 ```
 GET /wp-admin/admin-ajax.php?action=duplicator_download&file=../../../../../etc/passwd HTTP/1.1
@@ -709,11 +709,14 @@ Content-Type: text/xml; charset=UTF-8
 </pre>
 ```
 Visiting the front page we can see that our new post is successfully created and published.
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot4.png)
+
 However php code is not executed. Time for a little research.
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot5.png)
 
-Using local wordpress instance we create a simple page using _php-everywhere block_ and _<?php phpinfo(); ?>_ as code, publish the page and then check the source from the db:
+Using local wordpress instance we create a simple page using _php-everywhere block_ and _phpinfo();_ as code, publish the page and then check the source from the db:
 ```
 mysql> select * from wp_posts where post_content like "%everywhere%"\G
 ...
@@ -900,10 +903,15 @@ Content-Type: text/xml; charset=UTF-8
 ```
 
 Visting _http://pressed.htb/index.php/2022/02/05/title-4/_ to execute the payload.
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot7.png)
+
 And checking /wp-content/uploads/ to make sure payload is created.
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot7.png)
+
 Confirming we can execute shell commands. Executing `id` reveals webserver is running as `www-data`
+
 ![](https://github.com/nikip72/HTB/raw/main/Pressed/screenshot8.png)
 
 # MORE USABLE WEB SHELL WITH UPLOAD CAPABILITIES
